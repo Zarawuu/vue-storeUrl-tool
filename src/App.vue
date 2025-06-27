@@ -1,20 +1,29 @@
 <template>
-  <div class="mb-3 ml-2 text-xl">收藏網址小工具</div>
-
-  <input
-    ref="titleInput"
-    v-model.trim="title"
-    type="text"
-    class="input mb-2"
-    placeholder="Please enter the title"
-  />
-  <input
-    v-model.trim="url"
-    type="text"
-    class="input mr-2"
-    placeholder="Please enter the url"
-    @keyup.enter="addUrl"
-  />
+  <div class="flex items-center mb-3">
+    <div class="ml-2 text-xl mr-2">收藏網址小工具</div>
+    <div class="flex tooltip tooltip-right items-center">
+      <div class="tooltip-content py-2 px-4">
+        請輸入完整的標題 & URL才能按下Add
+      </div>
+      <button class="btn btn-xs">?</button>
+    </div>
+  </div>
+  <div class="flex flex-col mb-3">
+    <input
+      ref="titleInput"
+      v-model.trim="title"
+      type="text"
+      class="input mb-2 w-full transition-all"
+      placeholder="Please enter the title"
+    />
+    <input
+      v-model.trim="url"
+      type="text"
+      class="input mr-2 w-full transition-all"
+      placeholder="Please enter the url"
+      @keyup.enter="addUrl"
+    />
+  </div>
   <button
     class="btn btn-accent mr-2"
     @click="addUrl"
